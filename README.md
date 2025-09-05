@@ -133,4 +133,3 @@ CLIENT_URL=http://localhost:5173
 - [Mongoose](https://mongoosejs.com/)
 - [JWT](https://jwt.io/)
 - [Multer](https://github.com/expressjs/multer)
--
