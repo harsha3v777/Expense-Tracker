@@ -1,4 +1,6 @@
-require("dotenv").config()
+require("dotenv").config();
+console.log("Mongo URI is:", process.env.MONGO_URI);
+
 const cors = require("cors")
 const path = require("path")
 

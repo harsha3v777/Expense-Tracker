@@ -75,3 +75,30 @@ exports.downloadIncomeExcel = async (req, res) => {
         res.status(500).json({ message: "server error", error: err.message })
     }
 }
+
+// Update Income Source
+exports.updateIncome = async (req, res) => {
+    try {
+        const { icon, source, amount, date } = req.body;
+
+        const updatedIncome = await Income.findByIdAndUpdate(
+            req.params.id,
+            {
+                icon,
+                source,
+                amount,
+                date: new Date(date)
+            },
+            { new: true } // return updated doc
+        );
+
+        if (!updatedIncome) {
+            return res.status(404).json({ message: "Income not found" });
+        }
+
+        res.json(updatedIncome);
+    } catch (err) {
+        res.status(500).json({ message: "Server Error", error: err.message });
+    }
+};
+
